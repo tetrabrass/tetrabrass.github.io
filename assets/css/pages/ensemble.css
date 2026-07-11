@@ -14,8 +14,20 @@
   position: absolute;
   top: 0; left: 0; right: 0;
 }
-.overlay .nav a,
+.overlay .nav a {
+  color: var(--nav-muted);
+  transition: color 0.2s ease;
+}
+.overlay .nav a:hover {
+  color: var(--ink);
+}
+.overlay .nav a.current {
+  color: var(--ink);
+}
 .overlay .nav span,
+.overlay .nav span.nav-disabled {
+  color: var(--nav-muted);
+}
 .overlay .lang span,
 .overlay .lang-sep {
   color: var(--ink);
