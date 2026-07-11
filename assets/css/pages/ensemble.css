@@ -1,0 +1,97 @@
+.hero { position: relative; width: 100%; }
+.hero-img { width: 100%; height: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center 40%; display: block; }
+
+/* Kein Blend/Invert: Header sitzt über durchgehend hellem Bildbereich,
+   Logo und Nav bleiben solide dunkel (--ink). */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.overlay a { pointer-events: auto; }
+.overlay .site-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+}
+.overlay .nav a,
+.overlay .nav span,
+.overlay .lang span,
+.overlay .lang-sep {
+  color: var(--ink);
+}
+
+@media (max-width: 760px) {
+  .hero-img { aspect-ratio: 4/5; }
+}
+
+/* ---------- BIO: zentrierte schmale Lesespalte (bewusste Ausnahme vom --maxw-Raster) ---------- */
+.bio {
+  max-width: 92ch;
+  margin: 0 auto;
+  padding: clamp(56px, 10vh, 130px) var(--pad) clamp(30px, 5vh, 60px);
+}
+.bio-eyebrow {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  text-align: center;
+  margin-bottom: clamp(28px, 4vh, 44px);
+}
+.bio p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 1.1vw, 18px);
+  line-height: 1.7;
+  margin-bottom: 1.15em;
+  text-align: justify;
+  hyphens: auto;
+}
+.bio p:last-child { margin-bottom: 0; }
+
+.members {
+  max-width: 92ch;
+  margin: 0 auto;
+  padding: 0 var(--pad) clamp(70px, 12vh, 140px);
+  text-align: center;
+}
+.members-inner { padding-top: clamp(28px, 4vh, 44px); }
+.members p {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.95;
+}
+.members .name { font-weight: 400; }
+.members .sep { opacity: 0.35; margin: 0 10px; }
+.members .role { font-weight: 400; opacity: 0.65; }
+
+.press {
+  text-align: center;
+  padding: clamp(48px, 8vh, 100px) var(--pad) clamp(70px, 12vh, 150px);
+}
+.press-label {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 1.1vw, 16px);
+  opacity: 0.6;
+  margin-bottom: 22px;
+}
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  font-size: clamp(15px, 1.2vw, 18px);
+  letter-spacing: 0.01em;
+  color: var(--bg);
+  background: var(--ink);
+  text-decoration: none;
+  padding: 16px 30px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.btn-download:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-download svg { width: 18px; height: 18px; }

@@ -1,0 +1,36 @@
+.legal {
+  max-width: 70ch;
+  margin-inline: auto;
+  padding-block: clamp(32px, 5vw, 80px);
+  text-align: left;
+}
+.legal h1, .legal h2, .legal h3 {
+  font-family: "Archivo", sans-serif;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+.legal h1 {
+  font-weight: 800;
+  font-size: clamp(30px, 4vw, 48px);
+  margin-bottom: 0.6em;
+}
+.legal h2 {
+  font-weight: 700;
+  font-size: clamp(21px, 2.2vw, 28px);
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+.legal h3 {
+  font-weight: 600;
+  font-size: clamp(17px, 1.5vw, 20px);
+  margin-top: 1.4em;
+  margin-bottom: 0.35em;
+}
+.legal p {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(15px, 1.05vw, 17px);
+  line-height: 1.6;
+  margin-bottom: 0.9em;
+}
+.legal p.addr { line-height: 1.5; }
+.legal a { color: var(--ink); }

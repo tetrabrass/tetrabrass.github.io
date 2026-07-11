@@ -1,0 +1,20 @@
+/* Nur für die Kontakt-Seite: .placeholder-page zentriert statt linksbündig,
+   damit andere Platzhalter-Seiten (impressum, datenschutz, ...) unangetastet bleiben. */
+.placeholder-page {
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.placeholder-page h1 { text-transform: none; }
+.placeholder-page a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+.placeholder-page a:hover {
+  opacity: 0.6;
+}

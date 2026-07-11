@@ -1,0 +1,154 @@
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 620px;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.hero-track {
+  display: flex;
+  width: 400%;
+  height: 100%;
+  transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.slide {
+  position: relative;
+  width: 25%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ---------- OVERLAY (Zwei-Farben-Header, KEIN mix-blend-mode) ---------- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.overlay a { pointer-events: auto; }
+
+.overlay .site-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+}
+
+/* Standard: hell (Off-White Text, weißes Logo) — für dunkle Bilder 2–4 */
+.overlay .nav a,
+.overlay .nav span,
+.overlay .lang span,
+.overlay .lang-sep {
+  color: var(--bg);
+  transition: color 0.45s ease;
+}
+.overlay .wordmark-logo {
+  filter: invert(1);
+  transition: filter 0.45s ease;
+}
+
+/* .is-dark: dunkel (Ink Text, Logo in Originalfarbe) — für das helle Bild 1 */
+.overlay.is-dark .nav a,
+.overlay.is-dark .nav span,
+.overlay.is-dark .lang span,
+.overlay.is-dark .lang-sep {
+  color: var(--ink);
+}
+.overlay.is-dark .wordmark-logo {
+  filter: none;
+}
+
+/* ---------- QUOTES (eigene Ebene, kein Blend) ---------- */
+.quotes {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(26, 24, 20, 0.78) 0%,
+    rgba(26, 24, 20, 0.35) 20%,
+    rgba(26, 24, 20, 0) 46%);
+}
+
+.quote {
+  position: absolute;
+  left: var(--pad);
+  bottom: var(--pad);
+  right: var(--pad);
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.quote.is-active {
+  opacity: 1;
+  transform: none;
+}
+.quote-source {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  font-size: clamp(11px, 0.9vw, 13px);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f5f2ed;
+  opacity: 0.9;
+}
+.quote-text {
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 3.6vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #f5f2ed;
+}
+
+@media (max-width: 720px) {
+  .quote { bottom: calc(var(--pad) + 40px); }
+  .quote-text { font-size: clamp(26px, 7vw, 34px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-track { transition: none; }
+}
+
+/* ---------- INTRO (zweispaltig) ---------- */
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 110px);
+  padding-top: clamp(72px, 12vh, 160px);
+  padding-bottom: clamp(72px, 12vh, 160px);
+}
+.intro-col p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 1.15vw, 18px);
+  line-height: 1.65;
+  color: var(--ink);
+  margin-bottom: 1.15em;
+  text-align: justify;
+  hyphens: auto;
+}
+.intro-col p:last-child { margin-bottom: 0; }
+.intro-col em { font-style: italic; }
+
+@media (max-width: 720px) {
+  .intro { grid-template-columns: 1fr; gap: 2.4em; }
+}

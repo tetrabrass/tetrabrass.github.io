@@ -1,0 +1,25 @@
+/* Self-hosted, keine Google-Fonts-Requests zur Laufzeit. */
+
+@font-face {
+  font-family: "Archivo";
+  src: url("/assets/fonts/archivo/archivo-variable.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/dm-sans/dm-sans-variable.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/dm-sans/dm-sans-italic-variable.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}

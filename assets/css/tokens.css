@@ -1,0 +1,36 @@
+:root {
+  --bg: #f5f2ed;
+  --ink: #1a1814;
+  --pad: clamp(24px, 3.5vw, 56px);
+  --maxw: 1500px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 0; /* Tetra = vier-eckig, nirgends runde Ecken */
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+}
