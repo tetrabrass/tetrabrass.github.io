@@ -20,6 +20,28 @@
   display: block;
 }
 
+/* ---------- NAV-TOGGLE (Burger, nur mobil sichtbar) ---------- */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+.nav-toggle-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 0;
+}
+
 /* ---------- NAV ---------- */
 .nav {
   display: grid;
@@ -74,9 +96,24 @@
 .lang-sep { opacity: 0.3; }
 
 @media (max-width: 760px) {
-  .site-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .site-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
   .wordmark { flex-shrink: 0; }
-  .nav { grid-template-columns: auto; row-gap: 0; }
+  .nav-toggle { display: flex; }
+  .nav { display: none; grid-template-columns: auto; row-gap: 0; }
+  .nav.is-open {
+    display: grid;
+    width: 100%;
+    background: var(--bg);
+    padding-top: 28px;
+    padding-bottom: 40px;
+    row-gap: 28px;
+  }
 }
 
 /* ---------- FOOTER (statisch, volle Breite, nur padding) ---------- */

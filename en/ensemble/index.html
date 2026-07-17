@@ -18,7 +18,12 @@
     <!-- HEADER:START -->
     <header class="site-header">
       <a class="wordmark" href="/en/"><img class="wordmark-logo" src="/assets/img/logo/tetrabrass-logo.svg" alt="Tetra Brass"></a>
-      <nav class="nav">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav class="nav" id="site-nav">
         <a href="/en/ensemble/" data-page="ensemble" class="current">ensemble</a>
         <a href="/en/termine/" data-page="termine">dates</a>
         <span class="nav-disabled" aria-disabled="true">programmes</span>
@@ -75,6 +80,7 @@
   </nav>
   <div class="footer-copy">© 2026 Tetra Brass</div>
 </footer>
+<script src="/assets/js/nav-toggle.js"></script>
 <!-- FOOTER:END -->
 
 </body>

@@ -38,6 +38,7 @@
   pointer-events: none;
 }
 .overlay a { pointer-events: auto; }
+.overlay .nav-toggle { pointer-events: auto; }
 
 .overlay .site-header {
   position: absolute;

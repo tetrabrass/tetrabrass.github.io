@@ -15,7 +15,12 @@
 <!-- HEADER:START -->
 <header class="site-header">
   <a class="wordmark" href="/"><img class="wordmark-logo" src="/assets/img/logo/tetrabrass-logo.svg" alt="Tetra Brass"></a>
-  <nav class="nav">
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menü">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+  </button>
+  <nav class="nav" id="site-nav">
     <a href="/ensemble/" data-page="ensemble">ensemble</a>
     <a href="/termine/" data-page="termine">termine</a>
     <span class="nav-disabled" aria-disabled="true">programme</span>
@@ -269,6 +274,7 @@
   </nav>
   <div class="footer-copy">© 2026 Tetra Brass</div>
 </footer>
+<script src="/assets/js/nav-toggle.js"></script>
 <!-- FOOTER:END -->
 
 <div class="note">GRUNDGERÜST · Diskografie · Akkordion single-open · Releases folgen einzeln</div>
