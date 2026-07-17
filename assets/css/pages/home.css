@@ -49,7 +49,8 @@
 .overlay .nav a,
 .overlay .nav span,
 .overlay .lang span,
-.overlay .lang-sep {
+.overlay .lang-sep,
+.overlay .nav-toggle {
   color: var(--bg);
   transition: color 0.45s ease;
 }
@@ -62,7 +63,8 @@
 .overlay.is-dark .nav a,
 .overlay.is-dark .nav span,
 .overlay.is-dark .lang span,
-.overlay.is-dark .lang-sep {
+.overlay.is-dark .lang-sep,
+.overlay.is-dark .nav-toggle {
   color: var(--ink);
 }
 .overlay.is-dark .wordmark-logo {

@@ -32,6 +32,9 @@
   background: none;
   border: none;
   border-radius: 0;
+  color: inherit;
+  -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
 }
 .nav-toggle-bar {
