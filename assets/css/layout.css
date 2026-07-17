@@ -179,17 +179,6 @@
   padding: 12px;
 }
 
-/* ---------- Mockup-Hinweisleiste (Bauphase) ---------- */
-.note {
-  background: var(--ink);
-  color: var(--bg);
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  text-align: center;
-  padding: 10px;
-  font-weight: 400;
-}
-
 /* ---------- Platzhalter-Seiten (programme, kollaboration, kontakt, ...) ---------- */
 .placeholder-page {
   padding: clamp(72px, 14vh, 180px) var(--pad);
