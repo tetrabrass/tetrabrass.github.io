@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/assets/css/tokens.css">
 <link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/pages/programme.css">
 </head>
 <body>
 
@@ -22,7 +23,7 @@
   <nav class="nav" id="site-nav">
     <a href="/ensemble/" data-page="ensemble">ensemble</a>
     <a href="/termine/" data-page="termine">termine</a>
-    <span class="nav-disabled" aria-disabled="true">programme</span>
+    <a href="/programme/" data-page="programme" class="current">programme</a>
     <a href="/diskografie/" data-page="diskografie">diskografie</a>
     <span class="nav-disabled" aria-disabled="true">kollaboration</span>
     <a href="/repertoire/" data-page="repertoire">repertoire</a>
@@ -39,9 +40,60 @@
 </header>
 <!-- HEADER:END -->
 
-<main class="placeholder-page wrap">
-  <h1>programme</h1>
-  <p>Konzertprogramme folgen.</p>
+<main class="wrap">
+  <article class="prog is-expandable">
+    <div class="prog-head">
+      <div class="prog-info">
+        <h2 class="prog-title">Auf verwachsenem Pfade</h2>
+        <div class="prog-meta">Auf der Suche nach dem Ursprung der Kammermusik für Blechbläserquartett</div>
+        <div class="prog-teaser">
+          <p>Metall – genauer gesagt Messing – ist auf den ersten Blick nichts weiter als das Material, aus dem Blechblasinstrumente gefertigt werden. Doch wie klingt Metall?</p>
+          <p>Sanfte Melodien, glanzvoller Blechbläserklang und virtuose Spielfreude sind nur einige der vielen Facetten der 22 Lieder und Miniaturen, die auf der musikalischen Spurensuche Auf verwachsenem Pfade zusammenfinden. Der Pfad führt durch die Entwicklung von Tetra Brass und die Wiederentdeckung der Blechbläserquartettbesetzung – von spätromantischer Klangfülle über die Nähe zur menschlichen Stimme bis zu überraschenden Begegnungen mit neuen Klangfarben wird deutlich wie abwechslungsreich Metall klingen kann.</p>
+        </div>
+      </div>
+      <button class="prog-toggle" aria-expanded="false" aria-label="Programm ein-/ausklappen"></button>
+    </div>
+    <div class="prog-panel">
+      <div class="prog-panel-inner">
+        <div class="prog-body">
+
+          <div class="prog-works">
+            <h3>Werke</h3>
+            <ul class="prog-worklist">
+              <li><span class="prog-composer">Leoš Janáček</span> <em>Auf verwachsenem Pfade</em> — Bearbeitung des Klavierzyklus für Blechbläserquartett von Christian Traute</li>
+              <li><span class="prog-composer">Anton Simon</span> <em>22 Petits Morceaux d'Ensemble</em> (Op. 26, Nr. 1–8)</li>
+              <li><span class="prog-composer">Claude Debussy</span> <em>Trois Chansons de Charles d'Orléans</em> — Bearbeitung der Chorstücke für Blechbläserquartett von Christian Traute</li>
+              <li><span class="prog-composer">Anton Simon</span> <em>Quatuor „en forme de sonatine"</em> (Op. 23, Nr. 1)</li>
+            </ul>
+            <p class="prog-duration">Gesamtdauer ca. 90 Minuten mit einer Pause.</p>
+          </div>
+
+          <div class="prog-text">
+            <p>Anton Simon (1850–1916) verstand es auf besondere Weise den warmen, glänzenden und homogenen Klang der Blechblasinstrumente in seiner Musik zur Geltung zu bringen. Der 1871 von Paris nach Moskau emigrierte Komponist prägte mit seinen Werken die Kammermusik für Blechbläser mit Anklängen an Dvořák, Mendelssohn und Tschaikowski.</p>
+            <p>Die Trois Chansons von Claude Debussy (1862–1918), ursprünglich für A-cappella-Chor komponiert, lässt sich aufgrund seiner natürlichen Stimmlagen wunderbar auf zwei Trompeten sowie Tenor- und Bassposaune übertragen. Zwischen lyrischen Linien und kraftvoll deklamierten Phrasen entsteht dabei eine besondere Nähe zur menschlichen Stimme – und damit ein Bogen zurück zum Ursprung des musikalischen Ausdrucks.</p>
+            <p>Die Musik von „Auf verwachsenem Pfade" hat Tetra Brass auf seinem 2025 erschienenen Debütalbum <a href="/diskografie/#metall">METALL</a> eingespielt.</p>
+          </div>
+
+          <div class="prog-live">
+            <h3>Live-Referenzen</h3>
+            <p>Auf verwachsenem Pfade live @ Solti Hall (Budapest) / Wigmore Hall (London) / Konzerthaus (Berlin) / Konservatorium (Bern) / Santa Croce (Florenz) / Kurhaus (Palanga, Litauen)</p>
+            <p>Allerheiligen Hofkirche (München) mit Video-Installation von <a href="https://robertseidel.com" target="_blank" rel="noopener">Robert Seidel</a></p>
+          </div>
+
+          <div class="prog-gallery">
+            <div class="prog-gallery-strip">
+              <img src="/assets/img/programme/pfade-hofkirche-01.jpg" alt="Tetra Brass mit ‚Auf verwachsenem Pfade' in der Allerheiligen Hofkirche München" width="800" height="1000" loading="lazy">
+              <img src="/assets/img/programme/pfade-hofkirche-02.jpg" alt="Tetra Brass live in der Allerheiligen Hofkirche München" width="800" height="1000" loading="lazy">
+              <img src="/assets/img/programme/pfade-hofkirche-03.jpg" alt="Konzertszene aus ‚Auf verwachsenem Pfade' in der Allerheiligen Hofkirche" width="800" height="1000" loading="lazy">
+              <img src="/assets/img/programme/pfade-hofkirche-04.jpg" alt="Publikum bei ‚Auf verwachsenem Pfade' in der Allerheiligen Hofkirche München" width="800" height="1000" loading="lazy">
+            </div>
+            <p class="prog-gallery-credit">Fotos: Rodrigo Stix Luna</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </article>
 </main>
 
 <!-- FOOTER:START -->
@@ -58,5 +110,9 @@
 <script src="/assets/js/nav-toggle.js"></script>
 <!-- FOOTER:END -->
 
+<script src="/assets/js/accordion.js"></script>
+<script>
+  initAccordion('.prog.is-expandable', '.prog-head', '.prog-toggle');
+</script>
 </body>
 </html>

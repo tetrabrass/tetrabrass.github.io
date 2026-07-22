@@ -15,6 +15,7 @@ main.wrap {
 .release {
   border: 1px solid rgba(26, 24, 20, 0.13);
   margin-bottom: clamp(16px, 2vh, 22px);
+  scroll-margin-top: clamp(16px, 3vh, 32px);
   transition: border-color 0.25s ease, background 0.25s ease;
 }
 .release:hover { border-color: rgba(26, 24, 20, 0.3); }
