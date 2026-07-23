@@ -2,16 +2,6 @@ main.wrap {
   padding-top: clamp(32px, 6vh, 80px);
   padding-bottom: clamp(60px, 10vh, 120px);
 }
-.section-label {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  opacity: 0.5;
-  margin-bottom: clamp(28px, 4vh, 52px);
-}
-
 .release {
   border: 1px solid rgba(26, 24, 20, 0.13);
   margin-bottom: clamp(16px, 2vh, 22px);
