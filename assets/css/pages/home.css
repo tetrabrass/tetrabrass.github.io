@@ -71,6 +71,18 @@
   filter: none;
 }
 
+/* Offenes Mobile-Menü: Panel-Hintergrund ist immer hell (var(--bg), siehe
+   .nav.is-open in layout.css) — Nav-Links, Sprach-Spans und Burger müssen
+   dort unabhängig vom Overlay-/Slide-Zustand auf --ink stehen, sonst
+   verschwindet der Text auf hellen Slides (heller Text auf hellem Panel). */
+.overlay .nav.is-open a,
+.overlay .nav.is-open span {
+  color: var(--ink);
+}
+.overlay .nav-toggle[aria-expanded="true"] {
+  color: var(--ink);
+}
+
 /* ---------- QUOTES (eigene Ebene, kein Blend) ---------- */
 .quotes {
   position: absolute;
