@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tetra Brass — Quatuor de cuivres munichois</title>
+<meta name="description" content="Tetra Brass est un quatuor de cuivres de Munich : deux trompettes, deux trombones, une sonorité inimitable. Concerts, programmes et enregistrements de l'ensemble.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/pages/home.css">
+</head>
+<body>
+
+<section class="hero" id="hero">
+  <div class="hero-track" id="track">
+    <div class="slide"><img class="hero-img" src="/assets/img/hero/hero-1.jpg" alt="Tetra Brass"></div>
+    <div class="slide"><img class="hero-img" src="/assets/img/hero/hero-2.jpg" alt="Tetra Brass"></div>
+    <div class="slide"><img class="hero-img" src="/assets/img/hero/hero-3.jpg" alt="Tetra Brass"></div>
+    <div class="slide"><img class="hero-img" src="/assets/img/hero/hero-4.jpg" alt="Tetra Brass"></div>
+  </div>
+
+  <!-- Einzelne Overlay-Ebene, Farbe schaltet per JS zwischen hell/dunkel um -->
+  <div class="overlay">
+    <!-- HEADER:START -->
+    <header class="site-header">
+      <a class="wordmark" href="/fr/"><img class="wordmark-logo" src="/assets/img/logo/tetrabrass-logo.svg" alt="Tetra Brass"></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <a href="/fr/ensemble/" data-page="ensemble">ensemble</a>
+        <a href="/fr/termine/" data-page="termine">dates</a>
+        <span class="nav-disabled" aria-disabled="true">programmes</span>
+        <span class="nav-disabled" aria-disabled="true">discographie</span>
+        <span class="nav-disabled" aria-disabled="true">collaboration</span>
+        <span class="nav-disabled" aria-disabled="true">répertoire</span>
+        <div class="lang">
+          <a href="/">de</a>
+          <span class="lang-sep">/</span>
+          <a href="/en/">en</a>
+          <span class="lang-sep">/</span>
+          <span class="active">fr</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-disabled">it</span>
+        </div>
+      </nav>
+    </header>
+    <!-- HEADER:END -->
+  </div>
+
+  <!-- Zitate: eigene Ebene, weiße Schrift auf Verlaufsschatten (kein Blend) -->
+  <div class="quotes">
+    <div class="scrim"></div>
+
+    <blockquote class="quote is-active" data-slide="0">
+      <cite class="quote-source">Süddeutsche Zeitung</cite>
+      <span class="quote-text">« Précision absolue, unité et dynamique dosée avec un soin infini »</span>
+    </blockquote>
+
+    <blockquote class="quote" data-slide="1">
+      <cite class="quote-source">Münchner Merkur</cite>
+      <span class="quote-text">« À première vue, une révélation. »</span>
+    </blockquote>
+
+    <blockquote class="quote" data-slide="2">
+      <cite class="quote-source">Éloge du Prix d'encouragement pour la musique de la Ville de Munich</cite>
+      <span class="quote-text">« Outre un son chaleureux et finement fondu, une musicalité et une virtuosité exceptionnelles, ce jeune quatuor se distingue par une présence scénique remarquable. »</span>
+    </blockquote>
+
+    <blockquote class="quote" data-slide="3">
+      <cite class="quote-source">Frankfurter Allgemeine Zeitung</cite>
+      <span class="quote-text">« Sur son premier album, METALL, l'ensemble fait preuve d'une vision artistique et d'une culture sonore exceptionnelles. »</span>
+    </blockquote>
+  </div>
+</section>
+
+<section class="intro wrap">
+  <div class="intro-col">
+    <p>Tetra Brass est un ensemble dont l'effectif ne ressemble à aucun autre sur les scènes d'aujourd'hui, enrichissant la tradition de la musique de chambre d'une sonorité de cuivres singulière. Reconnu pour son timbre chaleureux et raffiné ainsi que pour l'énergie de ses interprétations, le quatuor s'est produit dans des salles de premier plan telles que le Wigmore Hall de Londres, le Konzerthaus de Berlin et la Solti Hall de Budapest, ainsi que dans des festivals comme le Detect Classic Festival, le Grafenegg Festival et la Münchener Biennale für Neues Musiktheater.</p>
+  </div>
+  <div class="intro-col">
+    <p>Chacun des programmes de Tetra Brass compose un univers musical qui lui est propre, réunissant musiques du passé et du présent, porté par la créativité, la curiosité et un goût de l'expérimentation. Des œuvres originales des XIXe et XXe siècles y côtoient des partitions contemporaines écrites pour le quatuor et créées par lui, ainsi que les arrangements de l'ensemble. Tetra Brass ouvre ainsi de nouvelles perspectives sur l'expérience du concert et fait entendre compositeurs et œuvres familiers sous un jour inattendu. Deux trompettes et deux trombones se fondent en une sonorité à la fois homogène, transparente et remarquablement riche en couleurs, révélant toute la palette expressive du quatuor de cuivres.</p>
+  </div>
+</section>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <nav class="footer-links">
+    <span class="footer-disabled" aria-disabled="true">presse</span>
+    <a href="/fr/kontakt/">contact</a>
+    <span class="footer-disabled" aria-disabled="true">newsletter</span>
+    <a href="/datenschutz/">confidentialité</a>
+    <a href="/impressum/">mentions légales</a>
+  </nav>
+  <div class="footer-copy">© 2026 Tetra Brass</div>
+</footer>
+<script src="/assets/js/nav-toggle.js"></script>
+<!-- FOOTER:END -->
+
+<script src="/assets/js/hero.js"></script>
+</body>
+</html>
