@@ -1,0 +1,39 @@
+.notfound-logo {
+  display: block;
+  padding: var(--pad);
+}
+
+.notfound-page {
+  text-align: center;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.notfound-page h1 {
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 4.5vw, 64px);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5em;
+}
+.notfound-page p {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(16px, 1.15vw, 18px);
+  opacity: 0.65;
+  line-height: 1.6;
+}
+
+.notfound-links {
+  display: flex;
+  gap: clamp(16px, 2vw, 28px);
+  margin-top: 1.5em;
+}
+.notfound-links a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+.notfound-links a:hover { opacity: 0.6; }
