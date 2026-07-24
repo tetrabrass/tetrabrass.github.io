@@ -18,6 +18,9 @@
 # - hreflang: pro Slug wird für jede Sprache, die auf Platte existiert, ein
 #   <link rel="alternate" hreflang="xx"> mit absoluter URL erzeugt, plus
 #   hreflang="x-default" auf die DE-Fassung (Standardsprache der Seite).
+# - sitemap.xml wird bei jedem Lauf aus allen gefundenen Seiten neu geschrieben
+#   (unabhängig von per CLI eingeschränkten Zielseiten). Seiten mit
+#   <meta name="robots" content="noindex"> werden ausgelassen.
 #
 # Aufruf ohne Argumente: synct alle */index.html (de-root, en/*, fr/*).
 # Aufruf mit Pfaden: synct NUR die angegebenen Seiten, prüft Existenz von
@@ -149,4 +152,26 @@ for page, lang, slug in pages:
 
 print(f"\n{changed} Datei(en) synchronisiert von {len(pages)} geprüft "
       f"(insgesamt {len(all_pages)} Seiten im Projekt gefunden).")
+
+# sitemap.xml: immer aus ALLEN gefundenen Seiten neu geschrieben, auch wenn
+# der Lauf per CLI auf einzelne Seiten eingeschränkt war. noindex-Seiten
+# fliegen raus, damit die Sitemap kein widersprüchliches Signal sendet.
+sitemap_urls = []
+for page, lang, slug in sorted(all_pages, key=lambda p: (p[1] != "de", p[2])):
+    content = page.read_text()
+    if 'name="robots" content="noindex"' in content:
+        continue
+    sitemap_urls.append(f"{BASE_URL}{target_href(lang, slug)}")
+
+sitemap_body = "\n".join(f"  <url><loc>{url}</loc></url>" for url in sitemap_urls)
+sitemap_xml = (
+    '<?xml version="1.0" encoding="UTF-8"?>\n'
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    f"{sitemap_body}\n"
+    "</urlset>\n"
+)
+sitemap_path = root / "sitemap.xml"
+if not sitemap_path.exists() or sitemap_path.read_text() != sitemap_xml:
+    sitemap_path.write_text(sitemap_xml)
+    print(f"sitemap.xml geschrieben ({len(sitemap_urls)} URLs).")
 PY
