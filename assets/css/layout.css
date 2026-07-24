@@ -145,6 +145,16 @@
   transition: opacity 0.2s ease;
 }
 .footer-links a:hover { opacity: 0.55; }
+.footer-links span.footer-disabled {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: clamp(15px, 1.1vw, 17px);
+  letter-spacing: 0.005em;
+  text-transform: lowercase;
+  color: var(--ink);
+  opacity: 0.4;
+  cursor: default;
+}
 .footer-copy {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
