@@ -18,6 +18,8 @@
 # - hreflang: pro Slug wird für jede Sprache, die auf Platte existiert, ein
 #   <link rel="alternate" hreflang="xx"> mit absoluter URL erzeugt, plus
 #   hreflang="x-default" auf die DE-Fassung (Standardsprache der Seite).
+#   Im selben Block steht außerdem ein selbstreferenzierendes
+#   <link rel="canonical"> auf die Seite selbst.
 # - sitemap.xml wird bei jedem Lauf aus allen gefundenen Seiten neu geschrieben
 #   (unabhängig von per CLI eingeschränkten Zielseiten). Seiten mit
 #   <meta name="robots" content="noindex"> werden ausgelassen.
@@ -108,7 +110,9 @@ def header_for_page(lang, slug):
     return html
 
 def hreflang_for_page(lang, slug):
-    lines = []
+    # Selbstreferenzierendes Canonical, damit tetrabrass.com nicht als
+    # Duplikat von www.tetrabrass.com o.ä. eingestuft wird.
+    lines = [f'<link rel="canonical" href="{BASE_URL}{target_href(lang, slug)}">']
     for target_lang in LANGS:
         if page_file_for(target_lang, slug).exists():
             lines.append(
