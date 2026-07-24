@@ -41,30 +41,38 @@ BASE_URL = "https://tetrabrass.com"
 header_tpl = {lang: (root / f"assets/partials/header.{lang}.html").read_text() for lang in LANGS}
 footer_tpl = {lang: (root / f"assets/partials/footer.{lang}.html").read_text() for lang in LANGS}
 
+def is_redirect_stub(path):
+    """Alte Squarespace-URL-Stubs (meta http-equiv=refresh) sind keine
+    normalen Seiten und werden nie mit HEADER/FOOTER/HREFLANG bestückt."""
+    try:
+        return 'http-equiv="refresh"' in path.read_text()
+    except FileNotFoundError:
+        return False
+
 def discover_pages():
     """Liste aller (Path, lang, slug) im Projekt."""
     pages = []
     root_index = root / "index.html"
-    if root_index.exists():
+    if root_index.exists() and not is_redirect_stub(root_index):
         pages.append((root_index, "de", ""))
     for d in sorted(root.iterdir()):
         if not d.is_dir() or d.name in ("assets", "scripts", "en", "fr") or d.name.startswith("."):
             continue
         idx = d / "index.html"
-        if idx.exists():
+        if idx.exists() and not is_redirect_stub(idx):
             pages.append((idx, "de", d.name))
     for lang in ("en", "fr"):
         lang_root = root / lang
         if not lang_root.is_dir():
             continue
         lang_index = lang_root / "index.html"
-        if lang_index.exists():
+        if lang_index.exists() and not is_redirect_stub(lang_index):
             pages.append((lang_index, lang, ""))
         for d in sorted(lang_root.iterdir()):
             if not d.is_dir():
                 continue
             idx = d / "index.html"
-            if idx.exists():
+            if idx.exists() and not is_redirect_stub(idx):
                 pages.append((idx, lang, d.name))
     return pages
 
