@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Schreibt die sprachspezifischen Partials (assets/partials/header.{de,en,fr}.html
 # und footer.{de,en,fr}.html) in jede */index.html zwischen den Markern
-# <!-- HEADER:START/END --> und <!-- FOOTER:START/END -->.
+# <!-- HEADER:START/END --> und <!-- FOOTER:START/END -->, sowie die
+# hreflang-Alternates zwischen <!-- HREFLANG:START/END -->.
 #
 # - Sprache + Slug einer Seite werden aus dem Pfad hergeleitet:
 #     ensemble/index.html      -> lang=de, slug=ensemble
@@ -14,6 +15,9 @@
 #     Übersetzung existiert auf Platte (z. B. en/<slug>/index.html) -> echter Link
 #     sonst                       -> <span class="lang-disabled">xx</span>
 #   So verlinkt der Umschalter nie auf eine Seite, die es noch nicht gibt.
+# - hreflang: pro Slug wird für jede Sprache, die auf Platte existiert, ein
+#   <link rel="alternate" hreflang="xx"> mit absoluter URL erzeugt, plus
+#   hreflang="x-default" auf die DE-Fassung (Standardsprache der Seite).
 #
 # Aufruf ohne Argumente: synct alle */index.html (de-root, en/*, fr/*).
 # Aufruf mit Pfaden: synct NUR die angegebenen Seiten, prüft Existenz von
@@ -29,6 +33,7 @@ from pathlib import Path
 
 root = Path(".")
 LANGS = ["de", "en", "fr"]
+BASE_URL = "https://tetrabrass.com"
 
 header_tpl = {lang: (root / f"assets/partials/header.{lang}.html").read_text() for lang in LANGS}
 footer_tpl = {lang: (root / f"assets/partials/footer.{lang}.html").read_text() for lang in LANGS}
@@ -91,6 +96,22 @@ def header_for_page(lang, slug):
     html = re.sub(r'<span data-lang="(\w+)">\w+</span>', resolve_lang_span, html)
     return html
 
+def hreflang_for_page(lang, slug):
+    lines = []
+    for target_lang in LANGS:
+        if page_file_for(target_lang, slug).exists():
+            lines.append(
+                f'<link rel="alternate" hreflang="{target_lang}" '
+                f'href="{BASE_URL}{target_href(target_lang, slug)}">'
+            )
+    # x-default: DE ist die Standardsprache der Seite
+    if page_file_for("de", slug).exists():
+        lines.append(
+            f'<link rel="alternate" hreflang="x-default" '
+            f'href="{BASE_URL}{target_href("de", slug)}">'
+        )
+    return "\n".join(lines)
+
 def replace_block(text, marker, block):
     start, end = f"<!-- {marker}:START -->", f"<!-- {marker}:END -->"
     indent_match = re.search(r"[ \t]*(?=" + re.escape(start) + ")", text)
@@ -120,6 +141,7 @@ for page, lang, slug in pages:
     text = page.read_text()
     updated = replace_block(text, "HEADER", header_for_page(lang, slug))
     updated = replace_block(updated, "FOOTER", footer_tpl[lang])
+    updated = replace_block(updated, "HREFLANG", hreflang_for_page(lang, slug))
     if updated != text:
         page.write_text(updated)
         print(f"aktualisiert: {page}  (lang={lang}, slug={slug or '·'})")
