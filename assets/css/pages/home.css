@@ -135,6 +135,8 @@
 }
 
 @media (max-width: 720px) {
+  .hero { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+  .hero-img { object-fit: contain; }
   .quote { bottom: calc(var(--pad) + 40px); }
   .quote-text { font-size: clamp(26px, 7vw, 34px); }
 }
