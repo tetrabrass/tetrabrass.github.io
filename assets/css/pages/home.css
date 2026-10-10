@@ -82,6 +82,10 @@
 @media (max-width: 720px) {
   .quote { bottom: calc(var(--pad) + 40px); }
   .quote-text { font-size: clamp(26px, 7vw, 34px); }
+  .quote[data-slide="2"] {
+    bottom: auto;
+    top: calc(var(--pad) + 50px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
