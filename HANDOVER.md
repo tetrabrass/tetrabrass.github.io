@@ -47,6 +47,28 @@ während man arbeitet. Nach CSS-Änderungen Browser-Cache leeren
 ## Header/Footer: zentrale Partials
 
 Header und Footer liegen zentral in:
+
+- `assets/partials/header.de.html`, `header.en.html`, `header.fr.html`
+- `assets/partials/footer.de.html`, `footer.en.html`, `footer.fr.html`
+- Styles dazu: `assets/css/layout.css`
+
+In den einzelnen Seiten stehen Header, Footer und die hreflang-/Canonical-Links
+zwischen den Markern `<!-- HEADER:START/END -->`, `<!-- FOOTER:START/END -->`
+und `<!-- HREFLANG:START/END -->`. Diese Blöcke und die `sitemap.xml` werden
+ausschließlich über `scripts/sync-partials.sh` gepflegt, nie direkt in den
+Seiten bearbeiten:
+
+```bash
+./scripts/sync-partials.sh                      # alle Seiten
+./scripts/sync-partials.sh ensemble/index.html  # nur bestimmte Seiten
+```
+
+Das Skript setzt den aktiven Menüpunkt, verlinkt im Sprachumschalter nur
+vorhandene Übersetzungen, erzeugt Canonical + hreflang und schreibt die
+`sitemap.xml` neu (ohne `noindex`-Seiten und Redirect-Stubs). Nach jeder
+Änderung an einem Partial und nach dem Anlegen einer neuen Seite oder
+Übersetzung ausführen, danach den Diff prüfen.
+
 Mobile Overrides liegen jeweils in `@media (max-width: 720px)` bzw.
 `@media (max-width: 760px)` Blöcken am Ende der jeweiligen Datei.
 
