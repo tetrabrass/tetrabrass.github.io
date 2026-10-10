@@ -1,40 +1,5 @@
 .hero { position: relative; width: 100%; }
-.hero-img { width: 100%; height: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center 40%; display: block; }
-
-/* Kein Blend/Invert: Header sitzt über durchgehend hellem Bildbereich,
-   Logo und Nav bleiben solide dunkel (--ink). */
-.overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  pointer-events: none;
-}
-.overlay a { pointer-events: auto; }
-.overlay .nav-toggle { pointer-events: auto; color: var(--ink); }
-.overlay .site-header {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-}
-.overlay .nav a {
-  color: var(--nav-muted);
-  transition: color 0.2s ease;
-}
-.overlay .nav a:hover {
-  color: var(--ink);
-}
-.overlay .nav a.current {
-  color: var(--ink);
-}
-.overlay .nav span,
-.overlay .nav span.nav-disabled {
-  color: var(--nav-muted);
-}
-.overlay .lang span,
-.overlay .lang-sep {
-  color: var(--ink);
-}
-
-@media (max-width: 760px) {
+.hero-img { width: 100%; height: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center 40%; display: block; }@media (max-width: 760px) {
   .hero-img { aspect-ratio: 4/5; }
 }
 
@@ -108,3 +73,18 @@
 }
 .btn-download:hover { opacity: 0.88; transform: translateY(-1px); }
 .btn-download svg { width: 18px; height: 18px; }
+
+/* ---------- HERO-STAGE (Header als Leiste über dem Karussell) ---------- */
+.hero-stage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.hero-stage > .site-header {
+  flex-shrink: 0;
+  padding-bottom: calc(var(--pad) * 0.4);
+}
+.hero-stage > .hero {
+  flex: 1 1 auto;
+  min-height: 0;
+}

@@ -28,62 +28,7 @@
   object-fit: cover;
   object-position: center;
   display: block;
-}
-
-/* ---------- OVERLAY (Zwei-Farben-Header, KEIN mix-blend-mode) ---------- */
-.overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  pointer-events: none;
-}
-.overlay a { pointer-events: auto; }
-.overlay .nav-toggle { pointer-events: auto; }
-
-.overlay .site-header {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-}
-
-/* Standard: hell (Off-White Text, weißes Logo) — für dunkle Bilder 2–4 */
-.overlay .nav a,
-.overlay .nav span,
-.overlay .lang span,
-.overlay .lang-sep,
-.overlay .nav-toggle {
-  color: var(--bg);
-  transition: color 0.45s ease;
-}
-.overlay .wordmark-logo {
-  filter: invert(1);
-  transition: filter 0.45s ease;
-}
-
-/* .is-dark: dunkel (Ink Text, Logo in Originalfarbe) — für das helle Bild 1 */
-.overlay.is-dark .nav a,
-.overlay.is-dark .nav span,
-.overlay.is-dark .lang span,
-.overlay.is-dark .lang-sep,
-.overlay.is-dark .nav-toggle {
-  color: var(--ink);
-}
-.overlay.is-dark .wordmark-logo {
-  filter: none;
-}
-
-/* Offenes Mobile-Menü: Panel-Hintergrund ist immer hell (var(--bg), siehe
-   .nav.is-open in layout.css) — Nav-Links, Sprach-Spans und Burger müssen
-   dort unabhängig vom Overlay-/Slide-Zustand auf --ink stehen, sonst
-   verschwindet der Text auf hellen Slides (heller Text auf hellem Panel). */
-.overlay .nav.is-open a,
-.overlay .nav.is-open span {
-  color: var(--ink);
-}
-.overlay .nav-toggle[aria-expanded="true"] {
-  color: var(--ink);
-}
-
-/* ---------- QUOTES (eigene Ebene, kein Blend) ---------- */
+}/* ---------- QUOTES (eigene Ebene, kein Blend) ---------- */
 .quotes {
   position: absolute;
   inset: 0;
@@ -166,4 +111,19 @@
 
 @media (max-width: 720px) {
   .intro { grid-template-columns: 1fr; gap: 2.4em; }
+}
+
+/* ---------- HERO-STAGE (Header als Leiste über dem Karussell) ---------- */
+.hero-stage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.hero-stage > .site-header {
+  flex-shrink: 0;
+  padding-bottom: calc(var(--pad) * 0.4);
+}
+.hero-stage > .hero {
+  flex: 1 1 auto;
+  min-height: 0;
 }

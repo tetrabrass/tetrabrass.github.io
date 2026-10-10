@@ -23,41 +23,38 @@
 </head>
 <body>
 
-<section class="hero" id="hero">
+<div class="hero-stage">
+  <!-- HEADER:START -->
+  <header class="site-header">
+    <a class="wordmark" href="/"><img class="wordmark-logo" src="/assets/img/logo/tetrabrass-logo.svg" alt="Tetra Brass"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menü">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav" id="site-nav">
+      <a href="/ensemble/" data-page="ensemble">ensemble</a>
+      <a href="/termine/" data-page="termine">termine</a>
+      <a href="/programme/" data-page="programme">programme</a>
+      <a href="/diskografie/" data-page="diskografie">diskografie</a>
+      <span class="nav-disabled" aria-disabled="true">kollaboration</span>
+      <a href="/repertoire/" data-page="repertoire">repertoire</a>
+      <div class="lang">
+        <span class="active">de</span>
+        <span class="lang-sep">/</span>
+        <a href="/en/">en</a>
+        <span class="lang-sep">/</span>
+        <a href="/fr/">fr</a>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER:END -->
+  <section class="hero" id="hero">
   <div class="hero-track" id="track">
     <div class="slide"><img class="hero-img" src="/assets/img/hero/hero-1.jpg" alt="Tetra Brass"></div>
     <div class="slide"><img class="hero-img" src="/assets/img/hero/hero-2.jpg" alt="Tetra Brass"></div>
     <div class="slide"><img class="hero-img" src="/assets/img/hero/hero-3.jpg" alt="Tetra Brass"></div>
     <div class="slide"><img class="hero-img" src="/assets/img/hero/hero-4.jpg" alt="Tetra Brass"></div>
-  </div>
-
-  <!-- Einzelne Overlay-Ebene, Farbe schaltet per JS zwischen hell/dunkel um -->
-  <div class="overlay">
-    <!-- HEADER:START -->
-    <header class="site-header">
-      <a class="wordmark" href="/"><img class="wordmark-logo" src="/assets/img/logo/tetrabrass-logo.svg" alt="Tetra Brass"></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menü">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
-      <nav class="nav" id="site-nav">
-        <a href="/ensemble/" data-page="ensemble">ensemble</a>
-        <a href="/termine/" data-page="termine">termine</a>
-        <a href="/programme/" data-page="programme">programme</a>
-        <a href="/diskografie/" data-page="diskografie">diskografie</a>
-        <span class="nav-disabled" aria-disabled="true">kollaboration</span>
-        <a href="/repertoire/" data-page="repertoire">repertoire</a>
-        <div class="lang">
-          <span class="active">de</span>
-          <span class="lang-sep">/</span>
-          <a href="/en/">en</a>
-          <span class="lang-sep">/</span>
-          <a href="/fr/">fr</a>
-        </div>
-      </nav>
-    </header>
-    <!-- HEADER:END -->
   </div>
 
   <!-- Zitate: eigene Ebene, weiße Schrift auf Verlaufsschatten (kein Blend) -->
@@ -86,7 +83,8 @@
   </div>
 </section>
 
-<section class="intro wrap">
+</div>
+  <section class="intro wrap">
   <div class="intro-col">
     <p>Mit Tetra Brass hat ein Ensemble in bislang einzigartiger Besetzung die Konzertbühnen betreten, das das Spektrum der etablierten Kammermusikformationen um eine eigenständige Blechbläserklangfarbe erweitert. Das Quartett begeistert sein Publikum mit warmem, feinem Zusammenklang und besonderer Performancekraft in Konzertsälen wie der Wigmore Hall London, dem Konzerthaus Berlin, der Solti Hall Budapest oder auf Festivals wie dem Detect Classic Festival, dem Grafenegg Festival oder der Münchener Biennale für Neues Musiktheater.</p>
   </div>
