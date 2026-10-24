@@ -38,7 +38,7 @@ from pathlib import Path
 
 root = Path(".")
 LANGS = ["de", "en", "fr"]
-BASE_URL = "https://tetrabrass.com"
+BASE_URL = "https://www.tetrabrass.com"
 
 header_tpl = {lang: (root / f"assets/partials/header.{lang}.html").read_text() for lang in LANGS}
 footer_tpl = {lang: (root / f"assets/partials/footer.{lang}.html").read_text() for lang in LANGS}
@@ -110,8 +110,9 @@ def header_for_page(lang, slug):
     return html
 
 def hreflang_for_page(lang, slug):
-    # Selbstreferenzierendes Canonical, damit tetrabrass.com nicht als
-    # Duplikat von www.tetrabrass.com o.ä. eingestuft wird.
+    # Selbstreferenzierendes Canonical, damit www.tetrabrass.com nicht als
+    # Duplikat der nicht-www-Domain (die per GitHub Pages auf www weiterleitet)
+    # eingestuft wird.
     lines = [f'<link rel="canonical" href="{BASE_URL}{target_href(lang, slug)}">']
     for target_lang in LANGS:
         if page_file_for(target_lang, slug).exists():
