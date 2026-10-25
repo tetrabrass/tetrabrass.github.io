@@ -39,6 +39,8 @@ from pathlib import Path
 root = Path(".")
 LANGS = ["de", "en", "fr"]
 BASE_URL = "https://www.tetrabrass.com"
+OG_LOCALES = {"de": "de_DE", "en": "en_GB", "fr": "fr_FR"}
+OG_IMAGE = f"{BASE_URL}/assets/img/og/tetrabrass-og.jpg"
 
 header_tpl = {lang: (root / f"assets/partials/header.{lang}.html").read_text() for lang in LANGS}
 footer_tpl = {lang: (root / f"assets/partials/footer.{lang}.html").read_text() for lang in LANGS}
@@ -128,6 +130,31 @@ def hreflang_for_page(lang, slug):
         )
     return "\n".join(lines)
 
+def esc_attr(value):
+    # Title/Description stehen schon als HTML-Quelltext vor (ggf. bereits mit
+    # Entities), daher "&" nicht nochmal escapen, nur ein rohes " maskieren.
+    return value.replace('"', "&quot;")
+
+def og_for_page(text, lang, slug):
+    """Open-Graph-/Twitter-Meta-Tags aus Title und Description der Seite
+    ableiten. Wird nur für indexierbare, echte Seiten aufgerufen (kein
+    noindex, kein Redirect-Stub)."""
+    title_match = re.search(r"<title>(.*?)</title>", text, re.S)
+    desc_match = re.search(r'<meta name="description" content="([^"]*)">', text)
+    title = title_match.group(1).strip() if title_match else "Tetra Brass"
+    description = desc_match.group(1).strip() if desc_match else ""
+    lines = [
+        f'<meta property="og:title" content="{esc_attr(title)}">',
+        f'<meta property="og:description" content="{esc_attr(description)}">',
+        f'<meta property="og:url" content="{BASE_URL}{target_href(lang, slug)}">',
+        '<meta property="og:type" content="website">',
+        '<meta property="og:site_name" content="Tetra Brass">',
+        f'<meta property="og:locale" content="{OG_LOCALES[lang]}">',
+        f'<meta property="og:image" content="{OG_IMAGE}">',
+        '<meta name="twitter:card" content="summary_large_image">',
+    ]
+    return "\n".join(lines)
+
 def replace_block(text, marker, block):
     start, end = f"<!-- {marker}:START -->", f"<!-- {marker}:END -->"
     indent_match = re.search(r"[ \t]*(?=" + re.escape(start) + ")", text)
@@ -158,6 +185,8 @@ for page, lang, slug in pages:
     updated = replace_block(text, "HEADER", header_for_page(lang, slug))
     updated = replace_block(updated, "FOOTER", footer_tpl[lang])
     updated = replace_block(updated, "HREFLANG", hreflang_for_page(lang, slug))
+    if 'name="robots" content="noindex"' not in updated:
+        updated = replace_block(updated, "OG", og_for_page(updated, lang, slug))
     if updated != text:
         page.write_text(updated)
         print(f"aktualisiert: {page}  (lang={lang}, slug={slug or '·'})")
