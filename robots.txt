@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /CLAUDE.md
+Disallow: /HANDOVER.md
+Disallow: /tetrabrass-build-briefing.md
+Disallow: /scripts/
+Disallow: /assets/partials/
 
-Sitemap: https://tetrabrass.com/sitemap.xml
+Sitemap: https://www.tetrabrass.com/sitemap.xml
