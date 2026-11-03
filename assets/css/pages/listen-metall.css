@@ -6,13 +6,6 @@
   padding-bottom: clamp(56px, 10vh, 120px);
   text-align: center;
 }
-.listen-cover {
-  display: block;
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  margin: 0 auto 32px;
-}
 .listen-title {
   font-family: "Archivo", sans-serif;
   font-weight: 700;
