@@ -22,12 +22,13 @@
 <!-- OG:END -->
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
     <link rel="apple-touch-icon" href="/icon-192.png">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' 'unsafe-inline'; frame-src https://*.sibforms.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' 'unsafe-inline'; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://*.sibforms.com;">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="stylesheet" href="/assets/css/tokens.css">
 <link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/layout.css">
 <link rel="stylesheet" href="/assets/css/pages/listening.css">
+<link rel="stylesheet" href="/assets/css/pages/newsletter.css">
 </head>
 <body>
 
@@ -59,10 +60,19 @@
 
 <main class="listen wrap">
   <h1 class="listen-title">Newsletter</h1>
-  <p class="listen-sub">Tetra Brass</p>
-  <p>Neuigkeiten zu Konzerten, Releases und Projekten von Tetra Brass per E-Mail.</p>
-  <iframe width="540" height="460" src="https://3f5a89cb.sibforms.com/v2/serve/MUIFAO7_UEFjO6TyWjaz4UsS0nZ-o3arEUSmYlZTRjfapp1B2Il5L0StjTHribIDGwNRTtsNHxH3dMpiMf-pDlzCpONJw8bcweXchz1Jk37rEYzEgf8EwZZO-8546zkAS2GYXLqYb329vHPsxicrMEaOSCnCKem-VT_sua_rS9Wb7lr9XlPiBkEGL4XaqcgMx9TcUUYy-lJKetnCDQ==" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
-  <p class="listen-sub"><a href="/datenschutz/">Datenschutz</a></p>
+  <p class="nl-intro">Neuigkeiten zu Konzerten, Releases und Projekten von Tetra Brass per E-Mail.</p>
+  <form class="nl-form" method="POST" action="https://3f5a89cb.sibforms.com/serve/MUIFAO7_UEFjO6TyWjaz4UsS0nZ-o3arEUSmYlZTRjfapp1B2Il5L0StjTHribIDGwNRTtsNHxH3dMpiMf-pDlzCpONJw8bcweXchz1Jk37rEYzEgf8EwZZO-8546zkAS2GYXLqYb329vHPsxicrMEaOSCnCKem-VT_sua_rS9Wb7lr9XlPiBkEGL4XaqcgMx9TcUUYy-lJKetnCDQ==">
+    <label class="nl-label" for="EMAIL">E-Mail-Adresse</label>
+    <input class="nl-input" type="email" id="EMAIL" name="EMAIL" autocomplete="email" placeholder="name@beispiel.de" required>
+    <label class="nl-check">
+      <input type="checkbox" id="OPT_IN" name="OPT_IN" value="1" required>
+      <span>Ich möchte den Newsletter von Tetra Brass per E-Mail erhalten. Dabei werden Öffnungen und Klicks ausgewertet. Ich kann meine Einwilligung jederzeit widerrufen, zum Beispiel über den Link in jedem Newsletter. Mehr dazu in der <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
+    </label>
+    <input class="nl-hp" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="locale" value="de">
+    <input type="hidden" name="html_type" value="simple">
+    <button class="nl-button" type="submit">Anmelden</button>
+  </form>
 </main>
 
 <!-- FOOTER:START -->
