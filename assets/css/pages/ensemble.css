@@ -9,16 +9,6 @@
   margin: 0 auto;
   padding: clamp(56px, 10vh, 130px) var(--pad) clamp(30px, 5vh, 60px);
 }
-.bio-eyebrow {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  opacity: 0.5;
-  text-align: center;
-  margin-bottom: clamp(28px, 4vh, 44px);
-}
 .bio p {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
@@ -45,34 +35,6 @@
 .members .name { font-weight: 400; }
 .members .sep { opacity: 0.35; margin: 0 10px; }
 .members .role { font-weight: 400; opacity: 0.65; }
-
-.press {
-  text-align: center;
-  padding: clamp(48px, 8vh, 100px) var(--pad) clamp(70px, 12vh, 150px);
-}
-.press-label {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
-  font-size: clamp(14px, 1.1vw, 16px);
-  opacity: 0.6;
-  margin-bottom: 22px;
-}
-.btn-download {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 600;
-  font-size: clamp(15px, 1.2vw, 18px);
-  letter-spacing: 0.01em;
-  color: var(--bg);
-  background: var(--ink);
-  text-decoration: none;
-  padding: 16px 30px;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-.btn-download:hover { opacity: 0.88; transform: translateY(-1px); }
-.btn-download svg { width: 18px; height: 18px; }
 
 /* ---------- HERO-STAGE (Header als Leiste über dem Karussell) ---------- */
 .hero-stage {

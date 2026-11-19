@@ -39,9 +39,9 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to top,
-    rgba(26, 24, 20, 0.78) 0%,
-    rgba(26, 24, 20, 0.35) 20%,
-    rgba(26, 24, 20, 0) 46%);
+    rgba(var(--ink-rgb), 0.78) 0%,
+    rgba(var(--ink-rgb), 0.35) 20%,
+    rgba(var(--ink-rgb), 0) 46%);
 }
 
 .quote {

@@ -1,6 +1,7 @@
 :root {
   --bg: #ffffff;
   --ink: #1a1814;
+  --ink-rgb: 26, 24, 20;
   --pad: clamp(24px, 3.5vw, 56px);
   --maxw: 1500px;
 }

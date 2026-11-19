@@ -14,8 +14,8 @@ main.wrap {
 .rep-intro p:last-child { margin-bottom: 0; }
 .rep-intro strong { font-weight: 700; }
 
-.cat { border-top: 1px solid rgba(26, 24, 20, 0.16); }
-.cat:last-child { border-bottom: 1px solid rgba(26, 24, 20, 0.16); }
+.cat { border-top: 1px solid rgba(var(--ink-rgb), 0.16); }
+.cat:last-child { border-bottom: 1px solid rgba(var(--ink-rgb), 0.16); }
 .cat-head {
   display: flex;
   align-items: center;
@@ -37,13 +37,13 @@ main.wrap {
   flex-shrink: 0;
   width: 34px;
   height: 34px;
-  border: 1px solid rgba(26, 24, 20, 0.25);
+  border: 1px solid rgba(var(--ink-rgb), 0.25);
   background: transparent;
   position: relative;
   cursor: pointer;
   transition: background 0.2s ease;
 }
-.cat-head:hover .cat-toggle { background: rgba(26, 24, 20, 0.05); }
+.cat-head:hover .cat-toggle { background: rgba(var(--ink-rgb), 0.05); }
 .cat-toggle::before, .cat-toggle::after {
   content: "";
   position: absolute;

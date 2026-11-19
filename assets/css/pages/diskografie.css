@@ -3,12 +3,12 @@ main.wrap {
   padding-bottom: clamp(60px, 10vh, 120px);
 }
 .release {
-  border: 1px solid rgba(26, 24, 20, 0.13);
+  border: 1px solid rgba(var(--ink-rgb), 0.13);
   margin-bottom: clamp(16px, 2vh, 22px);
   scroll-margin-top: clamp(16px, 3vh, 32px);
   transition: border-color 0.25s ease, background 0.25s ease;
 }
-.release:hover { border-color: rgba(26, 24, 20, 0.3); }
+.release:hover { border-color: rgba(var(--ink-rgb), 0.3); }
 .release.is-expandable .release-head { cursor: pointer; }
 
 .release-head {
@@ -31,24 +31,7 @@ main.wrap {
   object-fit: cover;
   display: block;
 }
-.cover .img-placeholder {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: transparent;
-  color: rgba(245, 242, 237, 0.55);
-}
-
 .release-info { min-width: 0; flex: 1; }
-.release-format {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  opacity: 0.5;
-  margin-bottom: 10px;
-}
 .release-title {
   font-family: "Archivo", sans-serif;
   font-weight: 700;
@@ -74,20 +57,6 @@ main.wrap {
   text-align: justify;
   hyphens: auto;
 }
-.release-desc--long { max-width: 74ch; line-height: 1.6; text-align: justify; hyphens: auto; }
-.release-hint {
-  display: inline-block;
-  margin-top: 16px;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  opacity: 0.5;
-  transition: opacity 0.2s ease;
-}
-.release-head:hover .release-hint { opacity: 0.85; }
-.release.is-open .release-hint { display: none; }
 .streaming { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
 .stream-link {
   font-family: "DM Sans", sans-serif;
@@ -97,7 +66,7 @@ main.wrap {
   color: var(--ink);
   text-decoration: none;
   padding: 7px 14px;
-  border: 1px solid rgba(26, 24, 20, 0.22);
+  border: 1px solid rgba(var(--ink-rgb), 0.22);
   transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
   white-space: nowrap;
 }
@@ -109,13 +78,13 @@ main.wrap {
   flex-shrink: 0;
   width: 44px;
   height: 44px;
-  border: 1px solid rgba(26, 24, 20, 0.25);
+  border: 1px solid rgba(var(--ink-rgb), 0.25);
   background: transparent;
   position: relative;
   cursor: pointer;
   transition: background 0.2s ease;
 }
-.release-head:hover .release-toggle { background: rgba(26, 24, 20, 0.05); }
+.release-head:hover .release-toggle { background: rgba(var(--ink-rgb), 0.05); }
 .release-toggle::before, .release-toggle::after {
   content: "";
   position: absolute;
@@ -129,7 +98,7 @@ main.wrap {
 .release-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.45s cubic-bezier(0.4, 0, 0.2, 1); }
 .release.is-open .release-panel { grid-template-rows: 1fr; }
 .release-panel-inner { overflow: hidden; }
-.werktext { border-top: 1px solid rgba(26, 24, 20, 0.13); margin: 0 clamp(20px, 2.4vw, 30px); padding: clamp(28px, 3.6vh, 40px) 0 clamp(28px, 3vw, 38px); }
+.werktext { border-top: 1px solid rgba(var(--ink-rgb), 0.13); margin: 0 clamp(20px, 2.4vw, 30px); padding: clamp(28px, 3.6vh, 40px) 0 clamp(28px, 3vw, 38px); }
 .werktext-col { max-width: 70ch; margin: 0 auto; }
 .werktext h3 { font-family: "Archivo", sans-serif; font-weight: 600; font-size: clamp(19px, 1.7vw, 26px); letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 0.85em; }
 .werktext p { font-family: "DM Sans", sans-serif; font-weight: 400; font-size: clamp(15px, 1.05vw, 16.5px); line-height: 1.68; margin-bottom: 1em; text-align: justify; hyphens: auto; }
