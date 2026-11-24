@@ -164,11 +164,26 @@
   .nav { display: none; grid-template-columns: auto; row-gap: 0; }
   .nav.is-open {
     display: grid;
-    width: 100%;
+    width: calc(100vw - 2 * var(--pad));
     background: var(--bg);
     padding-top: 28px;
-    padding-bottom: 40px;
-    row-gap: 28px;
+    padding-bottom: 0;
+    row-gap: 0;
+  }
+  .nav.is-open > a,
+  .nav.is-open > span,
+  .nav.is-open > .lang {
+    padding: 10px 0;
+  }
+  .nav-social-wrap {
+    gap: 10px;
+  }
+  .social-links {
+    display: none;
+    margin-top: -10px;
+  }
+  .nav.is-open ~ .social-links {
+    display: flex;
   }
 }
 
