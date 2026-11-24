@@ -17,14 +17,16 @@
 /* ---------- HEADER (statisch, volle Breite, nur padding) ---------- */
 .site-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  gap: clamp(16px, 2vw, 28px);
   padding: var(--pad);
 }
 
 .wordmark {
   display: block;
   text-decoration: none;
+  margin-right: auto;
 }
 .wordmark-logo {
   height: clamp(56px, 6.5vw, 88px);
@@ -111,11 +113,49 @@
 .lang span.active { opacity: 1; }
 .lang-sep { opacity: 0.3; }
 
+/* ---------- NAV + SOCIAL-LINKS gemeinsam rechtsbündig gestapelt ---------- */
+.nav-social-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+/* ---------- SOCIAL-LINKS (im Header, immer sichtbar, nie im Mobilmenü) ---------- */
+.social-links {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 10px;
+  /* Die SVGs haben ~10px Innenabstand ums Symbol (48px-Canvas, 24px-Symbol,
+     auf 40px skaliert). Ohne Korrektur wirkt das Facebook-Icon dadurch nicht
+     bündig mit dem Ende von "FR". */
+  margin-right: -10px;
+}
+.social-links a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  transition: opacity 0.2s ease;
+}
+.social-links a:hover {
+  opacity: 0.6;
+}
+.social-links a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+.social-links img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
 @media (max-width: 760px) {
   .site-header {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
     gap: 20px;
   }
